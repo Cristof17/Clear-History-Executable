@@ -1,0 +1,10 @@
+the program does the following:
+
+	-opens ~/.bash_history
+	-checks error on opening
+
+	-truncates ~/.bash_history to 0
+	-checks error on truncating
+
+	-writes success message to stdout
+	-checks error on writing success message to stdout
