@@ -17,6 +17,9 @@ int main(){
 	const char *filename = "/home/cristof/.bash_history";
 	const char *success_message = "~/bash_history truncated successfully\n";
 
+	/*
+	 * Open /home/cristof/.bash_history file
+	 */
 	fd = open(filename, (int)O_RDWR);
 
 	if (fd < 0){
@@ -26,6 +29,9 @@ int main(){
 		return -1;
 	}
 
+	/*
+	 * Truncate /home/cristof/.bash_history file to size 0
+	 */
 	rc = ftruncate(fd, (off_t)0);
 
 	if (rc < 0){
@@ -44,6 +50,9 @@ int main(){
 		return -1;
 	}
 
+	/*
+	 * Write success to the stdout
+	 */
 	len = strlen(success_message);
 	rw = (ssize_t)write(STDOUT_FILENO, (void *)success_message, (size_t)len);
 	if (rw < 0){
